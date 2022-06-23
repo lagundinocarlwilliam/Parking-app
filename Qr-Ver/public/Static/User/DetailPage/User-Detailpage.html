@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang='en'>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        background-color: #fff;
+    }
+
+    .navbar {
+        width: 160px;
+        height: 100vh;
+        position: fixed;
+        margin-left: -300px;
+        background-color: #7952b3;
+        transition: 0.4s;
+    }
+
+    .nav-link {
+        font-size: 1.25em;
+    }
+
+    .nav-link:active,
+    .nav-link:focus,
+    .nav-link:hover {
+        background-color: #ffffff26;
+    }
+
+    .dropdown-menu {
+        background-color: #7952b3;
+    }
+
+    .dropdown-item:active,
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        background-color: #ffffff26;
+    }
+
+    /* .my-container {
+            transition: 0.4s;
+            overflow-y: hidden;
+        }
+    
+        .my-container:hover {
+            overflow-y: scroll;
+        } */
+    /* for navbar */
+
+    .active-nav {
+        margin-left: 0;
+    }
+
+    /* for main section */
+
+    .main {
+        background: #F7F7F7;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        min-height: 100px;
+    }
+
+    .main-header-text {
+        padding-top: 10px;
+        font-size: 17px;
+    }
+
+    .vehicle-type {
+        padding: 10px;
+    }
+
+    .vehicle {
+        display: flex;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .info {
+        flex: 1;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 15px;
+    }
+
+    .vehicle .title {
+        font-weight: bold;
+    }
+
+    .vehicle .location {
+        color: #665E77;
+    }
+
+    .vehicle .slots {
+        color: #7358D4;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #3E3049;
+    }
+
+    .p-4 {
+        padding: 0px 1.5rem !important;
+    }
+
+    .buttons {
+        display: flex;
+        padding: 10px;
+    }
+
+    select,
+    input {
+        flex: 1;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        background: white;
+        margin: 5px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .fields {
+        display: block;
+        padding: 10px;
+    }
+
+    .button {
+        flex: 1;
+        height: 110px;
+        padding: 15px;
+        border-radius: 10px;
+        background: white;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        display: block;
+    }
+
+    .qr-btn {
+        background-color: #7952b3;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    .generate-btn {
+        text-align: center;
+        padding: 30px;
+    }
+
+    .active-cont {
+        margin-left: 145px;
+    }
+
+    .pagetext {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding-top: 25px;
+        margin-left: -25px;
+    }
+
+    #bck-btn {
+        background-color: #7952b3;
+        color: #fff;
+        margin-bottom: 0px !important;
+        height: 38px;
+        width: 34px;
+        z-index: 1;
+    }
+
+    #bck-btn:focus {
+        box-shadow: 0 0 0 0.25rem #7952b344;
+    }
+</style>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Parking app</title>
+    <!-- bootstrap 5 css -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css'
+        integrity='sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK' crossorigin='anonymous'>
+    <!-- custom css -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'
+        integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
+        crossorigin='anonymous'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js'
+        integrity='sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d'
+        crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+    <section class='p-4 my-container' style="display:flex">
+        <button class='btn my-4' id='bck-btn'><i class='fa fa-angle-left'></i></button>
+        <div class="pagetext">
+            <p style="font-size: 25px;font-weight: bold;margin-bottom: 0px;">Details</p>
+        </div>
+    </section>
+    <section class='p-4 my-container main' style="padding-top: 5px !important;">
+        <main>
+            <h2 class='main-header-text'>Select vehicle type </h2>
+            <div class='vehicle-type'>
+                <div class='vehicle' id='parking-1' onclick="addItem('parking','parking-1')">
+                    <div class='logo'>
+                        <i class='fa fa-parking' width='100%' style='font-size:33px;color:#7952b3'></i>
+                    </div>
+                    <div class='info'>
+                        <div class='title'>Entrance 1</div>
+                        <div class='description'>Marcos Highway Entrance</div>
+                    </div>
+                </div>
+                <div class='vehicle' id='parking-2' onclick="addItem('parking','parking-2')">
+                    <div class='logo'>
+                        <i class='fa fa-parking' width='100%' style='font-size:33px;color:#7952b3'></i>
+                    </div>
+                    <div class='info'>
+                        <div class='title'>Entrance 2</div>
+                        <div class='description'>Cainta Entrance</div>
+                    </div>
+                </div>
+                <div class='vehicle' id='parking-3' onclick="addItem('parking','parking-3')">
+                    <div class='logo'>
+                        <i class='fa fa-parking' width='100%' style='font-size:33px;color:#7952b3'></i>
+                    </div>
+                    <div class='info'>
+                        <div class='title'>Entrance 3</div>
+                        <div class='description'>Marikina Entrance</div>
+                    </div>
+                </div>
+            </div>
+            <h2 class='main-header-text'>Select vehicle size </h2>
+            <div class='buttons'>
+                <div class='button' id='vehicle-small' onclick="addItem('vehicle','vehicle-small')">
+                    <i class='fas fa-parking' width='100%' style='font-size:45px;color:#7952b3'></i>
+                    <p>Small</p>
+                </div>
+                <div class='button' id='vehicle-medium' onclick="addItem('vehicle','vehicle-medium')">
+                    <i class='fas fa-parking' width='100%' style='font-size:45px;color:#7952b3'></i>
+                    <p>Medium</p>
+                </div>
+                <div class='button' id='vehicle-large' onclick="addItem('vehicle','vehicle-large')">
+                    <i class='fas fa-parking' width='100%' style='font-size:45px;color:#7952b3'></i>
+                    <p>Large</p>
+                </div>
+            </div>
+
+            <h2 class='main-header-text'>User Information </h2>
+            <div class='fields'>
+                <input id='name' type='text' placeholder='Name' style='margin-bottom: 15px;' />
+                <input id='plateNo' type='text' placeholder='Plate No.' style='margin-bottom: 15px;' />
+                <input id='date' type='datetime-local' placeholder='Date'
+                    style='margin-bottom: 15px;align-items: start;color: gray;' />
+                <select name="time-status" id="time-status" style="color: gray;">
+                    <option value="IN">IN</option>
+                    <option value="OUT">OUT</option>
+                </select>
+            </div>
+            <div class='generate-btn'>
+                <span id='errMsg' style='display: none;color:red;'>Please select & fill out fields.</span>
+                <button class='qr-btn' onclick='makeCode()'>Generate QR</button>
+            </div>
+        </main>
+    </section>
+    <script type='text/javascript'>
+        var qrObj = {
+            "vehicle": "",
+            "entrance": "",
+            "name": "",
+            "plateNo": "",
+            "date": "",
+            "timeStatus": "",
+            "uuid": ""
+        };
+
+        function generateUUID() { // Public Domain/MIT
+            var d = new Date().getTime();//Timestamp
+            var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now() * 1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16;//random number between 0 and 16
+                if (d > 0) {//Use timestamp until depleted
+                    r = (d + r) % 16 | 0;
+                    d = Math.floor(d / 16);
+                } else {//Use microseconds since page-load if supported
+                    r = (d2 + r) % 16 | 0;
+                    d2 = Math.floor(d2 / 16);
+                }
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+        }
+
+        function addItem(objType, value) {
+            var tempObj = document.querySelectorAll('[id*="' + objType + '"]');
+            var selEl = document.getElementById(value);
+            selEl.style.background = "lightblue";
+
+            for (var i = 0; i < tempObj.length; i++) {
+                var el = tempObj[i];
+                if (el.id != selEl.id) {
+                    el.style.background = 'white';
+                }
+            }
+
+            if (objType == "parking") {
+                qrObj.entrance = value;
+            } else if (objType == "vehicle") {
+                qrObj.vehicle = value;
+            } else {
+                return;
+            }
+        }
+
+        function makeCode() {
+            var name = document.getElementById('name').value;
+            var plateNo = document.getElementById('plateNo').value;
+            var date = document.getElementById('date').value;
+            var timeStatus = document.getElementById("time-status").value;
+
+            qrObj.name = name;
+            qrObj.plateNo = plateNo;
+            qrObj.date = date;
+            qrObj.timeStatus = timeStatus;
+            qrObj.uuid = generateUUID();
+            
+            var objvalues = Object.values(qrObj).find(x => x == '');
+            var isOk = objvalues == undefined ? true : false;
+
+            if (isOk) {
+                fetch("http://localhost:5000/user/addDetails",
+                    {
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(qrObj)
+                    })
+                    .then(function (res) {
+                        if (res.statusText == "OK" && res.status == 200) {
+                            window.location.href = 'http://localhost:5000/user/qrpage';
+                        } else {
+                            alert(res)
+                        }
+                    })
+            } else {
+                var errMsg = document.getElementById('errMsg');
+                errMsg.style.display = "block";
+            }
+        }
+
+        var bckbtn = document.querySelector('#bck-btn');
+        bckbtn.addEventListener('click', () => {
+            window.location.href = 'http://localhost:5000/user/homepage';
+        });
+    </script>
+</body>
+
+</html>

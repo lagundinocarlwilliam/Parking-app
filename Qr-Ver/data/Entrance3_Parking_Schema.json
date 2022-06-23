@@ -1,0 +1,107 @@
+[
+    {
+        "slotID": "SP-1",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "small",
+        "distance":1
+    },
+    {
+        "slotID": "SP-2",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "small",
+        "distance":2
+    },
+    {
+        "slotID": "SP-3",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "small",
+        "distance":3
+    },
+    {
+        "slotID": "SP-4",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "small",
+        "distance":4
+    },
+    {
+        "slotID": "SP-5",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "small",
+        "distance":5
+    },
+    {
+        "slotID": "MP-1",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "medium",
+        "distance":6
+    },
+    {
+        "slotID": "MP-2",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "medium",
+        "distance":7
+    },
+    {
+        "slotID": "MP-3",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "medium",
+        "distance":8
+    },
+    {
+        "slotID": "MP-4",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "medium",
+        "distance":9
+    },
+    {
+        "slotID": "MP-5",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "medium",
+        "distance":10
+    },
+    {
+        "slotID": "LP-1",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "large",
+        "distance":11
+    },
+    {
+        "slotID": "LP-2",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "large",
+        "distance":12
+    },
+    {
+        "slotID": "LP-3",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "large",
+        "distance":13
+    },
+    {
+        "slotID": "LP-4",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "large",
+        "distance":14
+    },
+    {
+        "slotID": "LP-5",
+        "isOccupied": "false",
+        "timeOccupied": "0:00:00",
+        "slotSize": "large",
+        "distance":15
+    }
+]
