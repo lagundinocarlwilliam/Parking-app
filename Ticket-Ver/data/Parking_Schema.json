@@ -1,0 +1,383 @@
+{
+    "entrance1": {
+        "name": "Entrance 1",
+        "description": "Marcos Highway Entrance",
+        "parkingID": "entrance1",
+        "slots": [
+            {
+                "slotID": "SP-1_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 1,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-2_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 2,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-3_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 3,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-4_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 4,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-5_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 5,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-1_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 6,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-2_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 7,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-3_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 8,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-4_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 9,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-5_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 10,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-1_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 11,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-2_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 12,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-3_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 13,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-4_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 14,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-5_P1",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 15,
+                "ticketNumber": ""
+            }
+        ]
+    },
+    "entrance2": {
+        "name": "Entrance 2",
+        "description": "Cainta Entrance",
+        "parkingID": "entrance2",
+        "slots": [
+            {
+                "slotID": "SP-1_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 1,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-2_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 2,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-3_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 3,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-4_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 4,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-5_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 5,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-1_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 6,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-2_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 7,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-3_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 8,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-4_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 9,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-5_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 10,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-1_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 11,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-2_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 12,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-3_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 13,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-4_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 14,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-5_P2",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 15,
+                "ticketNumber": ""
+            }
+        ]
+    },
+    "entrance3": {
+        "name": "Entrance 3",
+        "description": "Marikina Entrance",
+        "parkingID": "entrance3",
+        "slots": [
+            {
+                "slotID": "SP-1_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 1,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-2_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 2,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-3_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 3,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-4_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 4,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "SP-5_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "small",
+                "distance": 5,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-1_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 6,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-2_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 7,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-3_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 8,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-4_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 9,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "MP-5_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "medium",
+                "distance": 10,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-1_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 11,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-2_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 12,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-3_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 13,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-4_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 14,
+                "ticketNumber": ""
+            },
+            {
+                "slotID": "LP-5_P3",
+                "isOccupied": "false",
+                "timeOccupied": "0:00:00",
+                "slotSize": "large",
+                "distance": 15,
+                "ticketNumber": ""
+            }
+        ]
+    }
+}

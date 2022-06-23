@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Parking app</title>
+    <!-- bootstrap 5 css -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css'
+        integrity='sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK' crossorigin='anonymous'>
+    <!-- custom css -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'
+        integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
+        crossorigin='anonymous'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js'
+        integrity='sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d'
+        crossorigin='anonymous'></script>
+    <!-- <script type='text/javascript' src='jquery.min.js'></script> -->
+    <!-- <script src='jquery-3.6.0.min.js'></script> -->
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class='p-4 my-container'>
+        <button class='btn my-4' id='bck-btn'><i class='fa fa-angle-left'></i></button>
+    </section>
+    <main>
+        <div class='qr-class'>
+            <!-- <div id='qrcode' style='width:250px; height:250px; margin-top:15px;'></div> -->
+            <div id="ticket-id" style="
+            font-size: 60px;
+            font-weight: bold;"></div>
+            <div>Ticket Number</div>
+        </div>
+        <div class="parking-info">
+            <div id="entrance" style="
+            padding-bottom: 10px;
+        "><span style="font-weight: bold;">Entrance: </span></div>
+            <div id="vehicle-type" style="
+            padding-bottom: 10px;
+        "><span style="font-weight: bold;">Vehicle: </span></div>
+            <div id="name" style="
+            padding-bottom: 10px;
+        "><span style="font-weight: bold;">Name: </span></div>
+            <div id="plateNo" style="
+            padding-bottom: 10px;
+        "><span style="font-weight: bold;">PlateNo: </span></div>
+        </div>
+    </main>
+    <script type='text/javascript'>
+        var bckbtn = document.querySelector('#bck-btn');
+        bckbtn.addEventListener('click', () => {
+            window.location.href = 'http://localhost:5000/user/detailpage';
+        });
+
+        function getItems() {
+            fetch("http://localhost:5000/user/getqrdetails")
+                .then(res => res.json())
+                .then(data => {
+                    var ticketNumber = document.getElementById("ticket-id");
+                    var entrance = document.getElementById("entrance");
+                    var vehicleType = document.getElementById("vehicle-type");
+                    var name = document.getElementById("name");
+                    var plateNo = document.getElementById("plateNo");
+
+                    ticketNumber.innerText = data["ticketNumber"];
+                    entrance.innerHTML = entrance.innerHTML + data["entrance"];
+                    vehicleType.innerHTML = vehicleType.innerHTML + data["vehicle"];
+                    name.innerHTML = name.innerHTML + data["name"];
+                    plateNo.innerHTML = plateNo.innerHTML + data["plateNo"];
+
+                });
+        }
+
+        getItems();
+    </script>
+</body>
+
+</html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        background-color: #fff;
+    }
+
+    /* for main section */
+
+    .main {
+        background: #F7F7F7;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        min-height: 100px;
+    }
+
+    .qr-class {
+        padding: 35px;
+        padding-top: 0px;
+        display: block;
+        text-align: center;
+    }
+
+    .main-header-text {
+        padding-top: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #3E3049;
+    }
+
+    .p-4 {
+        padding: 0px 2.5rem !important;
+        padding-top: 30px !important;
+    }
+
+    input {
+        flex: 1;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        background: white;
+        margin: 5px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #bck-btn {
+        background-color: #7952b3;
+        color: #fff;
+        height: 38px;
+        width: 34px;
+        z-index: 1;
+    }
+
+    #bck-btn:focus {
+        box-shadow: 0 0 0 0.25rem #7952b344;
+    }
+
+    .parking-info {
+        padding: 40px;
+        font-size: 20px;
+    }
+</style>

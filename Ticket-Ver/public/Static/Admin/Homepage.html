@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Parking app</title>
+    <!-- bootstrap 5 css -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css'
+        integrity='sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK' crossorigin='anonymous'>
+    <!-- custom css -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js'
+        integrity='sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d'
+        crossorigin='anonymous'></script>
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+        integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <!-- <script src="html5-qrcode.min.js"></script> -->
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+</head>
+
+<body>
+    <div class='content'>
+        <div class='container-fluid-normal'>
+            <div class='window-container'>
+                <div class='topnav'>
+                    <div class='profile-info'>
+                        <p>Good morning, <span style='font-weight: bold;'>Admin</span></p>
+                    </div>
+                </div>
+                <div class='middle-content'>
+                    <div class='admin-header'>
+                        <div>PARKING OVERVIEW</div>
+                        <div style='font-size: 12px;color: gray;'>View real-time free and occupied parking spaces</div>
+                    </div>
+                    <div class="park-list">
+                        <div id="adminParking"></div>
+                    </div>
+                </div>
+                <a class='floating-btn' data-toggle="modal" data-target="#scanTemplate"><i class='fa fa-qrcode'
+                        style='padding-right: 5px;'></i>Input Ticket</a>
+                <div class="modal fade" id="scanTemplate" tabindex="-1" role="dialog"
+                    aria-labelledby="scanTemplateLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="scanTemplateLabel">Scan Ticket</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="container">
+                                    <input type="text" id="ticketNumber" placeholder="Input ticket number">
+                                    <button onclick='checkTicket()'>Submit</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            var parkingObj = {};
+            fetch("http://localhost:5000/admin/getparking")
+                .then(res => res.json())
+                .then(data => {
+                    parkingObj = data;
+
+                    var adminParking = '';
+                    for (var item in parkingObj["parking"]) {
+                        var dataItem = parkingObj["parking"][item];
+                        adminParking += "<div class='parking'>";
+                        adminParking += "   <div class='title'>" + dataItem.name + "</div>"
+                        adminParking += "   <div class='text'>" + dataItem.description + "</div>"
+                        adminParking += "   <div class='slots'>"
+                        adminParking += "       <div class='slot'>"
+                        adminParking += "           <p>ENTRANCE</p"
+                        adminParking += "       </div>"
+                        adminParking += "   </div>"
+                        adminParking += "   </div>"
+                        adminParking += "   <div class='slots'>"
+                        for (var i = 0; i < dataItem.slots.length; i++) {
+                            var slot = dataItem.slots[i];
+                            adminParking += "   <div class='slot' id=" + slot.slotID + ">"
+                            adminParking += "       <i class='fas fa-parking' width='100%' style='font-size:25px;color:#7952b3'></i>"
+                            adminParking += "       <p>" + slot.slotID + "</p>"
+                            adminParking += "   </div>"
+                        }
+                        adminParking += "   </div>"
+                        adminParking += "</div>";
+                    }
+
+                    $('#adminParking').html(adminParking);
+                });
+        });
+
+        function checkTicket() {
+            var ticketNumber = document.getElementById("ticketNumber");
+            var ticketObj = {
+                "ticketNumber": ticketNumber.value
+            }
+            fetch("http://localhost:5000/admin/getSessionTicket",
+                {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(ticketObj)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.timeStatus == "IN") {
+                        fetch("http://localhost:5000/admin/updateParkingSchema",
+                            {
+                                method: "POST",
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data)
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                            })
+                    } else if (data.timeStatus == "OUT") {
+                        //Get JSON SCHEMA
+                    }
+                })
+        }
+    </script>
+</body>
+
+</html>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .floating-btn {
+        cursor: pointer;
+        height: 50px;
+        width: 165px;
+        background-color: #7952b3;
+        display: flex;
+        color: white;
+        font-size: 15px;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        border-radius: 20px;
+        box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        height: 100vh;
+        min-height: -webkit-fill-available;
+        overflow: hidden;
+        color: #333;
+    }
+
+    .topnav {
+        width: 100%;
+        height: 65px;
+        /* border-bottom: 2px solid #f1f1f1; */
+        padding-bottom: 10px;
+        padding-top: 20px;
+        display: flex;
+        background: #7952b3;
+        padding-left: 15px;
+    }
+
+    .topnav h1 {
+        margin: 10px 25px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #0060a7;
+    }
+
+    .container-fluid-normal {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100vh;
+        background-color: #fff;
+    }
+
+    .container-fluid-normal>.window-container {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        margin: 0 !important;
+        float: right;
+        letter-spacing: .5px;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
+
+    .middle-content {
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: auto;
+        /*padding: 15px;*/
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        background: #f7f7f7;
+        /* margin-bottom: 40px; */
+    }
+
+    .topnav .profile-info p:first-child {
+        font-size: 15px;
+        color: #f7f7f7;
+        margin-bottom: 0;
+    }
+
+    .topnav .message {
+        font-size: 15px;
+        color: #f7f7f7;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    .admin-header {
+        display: block;
+        padding: 30px;
+    }
+
+    .admin-header>div {
+        flex: 1;
+        width: 100%;
+    }
+
+    .admin-header>div:first-child {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .park-list {
+        width: 100%;
+        padding: 0px 30px;
+    }
+
+    .park-box,
+    #adminParking {
+        padding: 25px 25px;
+        border-top: 5px solid #7952b3;
+        background: #fff;
+        float: left;
+        width: 100%;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    .park-box,
+    #adminParking div.title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 15px;
+    }
+
+    .park-box,
+    #adminParking div.link {
+        color: #1078c5;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .park-box,
+    #adminParking div.link a {
+        color: #1078c5;
+        text-decoration: none;
+    }
+
+    .park-box,
+    #adminParking div.text {
+        margin-bottom: 5px;
+        color: gray;
+        font-size: 10px;
+        margin-bottom: 30px;
+    }
+
+    .slot {
+        flex: 1;
+        height: 50px;
+        padding: 10px;
+        border-radius: 10px;
+        background: #f7f7f7;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        display: block;
+    }
+
+    .slot {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        padding: 10px;
+        max-width: 230px;
+        text-align: center;
+        margin-left: 15px;
+    }
+
+    .slot>p {
+        margin: 0px;
+        font-size: 10px;
+    }
+
+    .parking {
+        padding-bottom: 15px;
+    }
+
+    .slots {
+        padding: 10px;
+        display: grid;
+        grid-template: auto auto auto auto;
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+
+    #container {
+        text-align: center;
+        margin: 0;
+    }
+</style>

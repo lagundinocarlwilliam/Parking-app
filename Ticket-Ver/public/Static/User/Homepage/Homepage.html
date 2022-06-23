@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang='en'>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        min-height: 100vh;
+        background-color: #fff;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .navbar {
+        width: 160px;
+        height: 100vh;
+        position: fixed;
+        margin-left: -300px;
+        background-color: #7952b3;
+        transition: 0.4s;
+    }
+    
+    .nav-link {
+        font-size: 1.25em;
+    }
+    
+    .nav-link:active,
+    .nav-link:focus,
+    .nav-link:hover {
+        background-color: #ffffff26;
+    }
+    
+    .dropdown-menu {
+        background-color: #7952b3;
+    }
+    
+    .dropdown-item:active,
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        background-color: #ffffff26;
+    }
+    
+    .active-nav {
+        margin-left: 0;
+    }
+    /* for main section */
+    
+    .main {
+        /* background: #F7F7F7; */
+        /* margin-top: 20px; */
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        min-height: 100px;
+    }
+    
+    .main-header-text {
+        padding-top: 15px;
+    }
+    
+    .header-txt {
+        padding-top: 15px;
+        text-align: center;
+        color: #7952b3;
+        font-size: 40px;
+        margin-bottom: 0px !important;
+        /* font-style: italic; */
+    }
+    
+    .headertxt {
+        text-align: center;
+    }
+    
+    .homeButtons {
+        padding: 10px;
+    }
+    
+    .homeBtn {
+        display: flex;
+        background: #F7F7F7;
+        padding: 15px 40px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .info {
+        flex: 1;
+    }
+    
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .homeBtn .title {
+        font-weight: bold;
+    }
+    
+    .homeBtn .description {
+        color: #665E77;
+    }
+    
+    .homeBtn .slots {
+        color: #7358D4;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #3E3049;
+    }
+    
+    .p-4 {
+        padding: 0px 1.5rem!important;
+    }
+    
+    .available-count {
+        display: flex;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    input {
+        flex: 1;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        background: white;
+        margin: 5px;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .info {
+        margin-bottom: 0px;
+    }
+    
+    .fields {
+        display: block;
+        padding: 10px;
+    }
+    
+    .available-count-detail {
+        flex: 1;
+        /* height: 110px; */
+        padding: 15px;
+        border-radius: 10px;
+        background: #F7F7F7;
+        margin: 5px;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+        display: block;
+    }
+    
+    .pagename {
+        font-weight: bold;
+        padding-left: 30px;
+        font-size: 30px;
+        margin-bottom: 0px;
+    }
+    
+    .pagedescription {
+        padding-left: 30px;
+        font-size: 15px;
+        color: #7952b3;
+        margin-bottom: 0px;
+        font-weight: 500;
+    }
+
+    .divheader {
+        padding-left: 30px;
+        font-size: 15px;
+        color: #7952b3;
+        margin-bottom: 0px;
+        font-weight: 500;
+        color: #665E77;
+        font-size: 20px;
+    }
+    
+    .qr-btn {
+        background-color: #7952b3;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 90%;
+        border-radius: 10px;
+    }
+    
+    .generate-btn {
+        text-align: center;
+        /* padding: 30px; */
+    }
+    
+    .active-cont {
+        margin-left: 145px;
+    }
+    
+    .slotAvail {
+        font-size: 35px;
+        font-weight: bold;
+        color: #7952b3;
+        margin-bottom: 0px;
+    }
+    
+    .slotDesc {
+        margin-bottom: 0px;
+        color: #665E77;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    
+    #menu-btn {
+        background-color: #7952b3;
+        color: #fff;
+    }
+    
+    #menu-btn:focus {
+        box-shadow: 0 0 0 0.25rem #7952b344;
+    }
+</style>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Parking app</title>
+    <!-- bootstrap 5 css -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css' integrity='sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK' crossorigin='anonymous'>
+    <!-- custom css -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js' integrity='sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d' crossorigin='anonymous'></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+</head>
+
+<body>
+    <section class='p-4 my-container'>
+        <p class="pagename">Welcome!</p>
+        <p class="pagedescription">Parking app</p>
+        <img src='https://img.freepik.com/free-vector/parking-concept-illustration_114360-6554.jpg?w=740&t=st=1655106792~exp=1655107392~hmac=c9e60a3df5bf99992b7d29971d7c7f9da27503e7a1e3e151c35a769ae1b24b55' width='100%' style='padding-top: 20px;margin-bottom: -25px;'>
+    </section>
+    <section class='p-4 my-container main'>
+        <main>
+            <div class="avail-text">
+                <p class="divheader">Available slots</p>
+            </div>
+            <div class='available-count'>
+                <div class='available-count-detail' id='Motorcycle'>
+                    <p class="slotAvail" id="mcAvailSlots">4</p>
+                    <p class="slotDesc">Small vehicle slots</p>
+                </div>
+                <div class='available-count-detail' id='Sedan/SUV'>
+                    <p class="slotAvail" id="carAvailSlots">4</p>
+                    <p class="slotDesc">Medium vehicle slots</p>
+                </div>
+                <div class='available-count-detail' id='Sedan/SUV'>
+                    <p class="slotAvail" id="carAvailSlots">4</p>
+                    <p class="slotDesc">Large vehicle slots</p>
+                </div>
+            </div>
+            <div class='generate-btn' style="padding-bottom:10px;">
+                <button class='qr-btn' onclick='redirectToMainPage()'>Park In</button>
+            </div>
+        </main>
+    </section>
+    <script type="text/javascript">      
+        function redirectToMainPage() {
+            window.location.href = "http://localhost:5000/user/detailpage";
+        }
+
+        function countAvailSlots() {
+            var mcSlotCount = 4;
+            var carSlotCount = 12;
+            var mcSlots = ['D-1', 'D-2', 'D-3', 'D-4'];
+            var carSlots = [
+                'A-1', 'A-2', 'A-3', 'A-4',
+                'B-1', 'B-2', 'B-3', 'B-4',
+                'C-1', 'C-2', 'C-3', 'C-4',
+            ];
+            var unavailableSlots = JSON.parse(localStorage.getItem("takenSlots"));
+            unavailableSlots = unavailableSlots == null ? [] : unavailableSlots;
+
+            var qrObj = JSON.parse(localStorage.getItem("qrObj"));
+            if (qrObj) {
+                if (!unavailableSlots.includes(qrObj.slot)) {
+                    unavailableSlots.push(qrObj.slot);
+                    localStorage.setItem("takenSlots", JSON.stringify(unavailableSlots));
+                }
+            }
+
+            var tempMCCount = mcSlots.filter(item => !unavailableSlots.includes(item)).length;
+            mcSlotCount = tempMCCount == null ? mcSlotCount : tempMCCount;
+            mcEl = document.getElementById("mcAvailSlots");
+            mcEl.textContent = mcSlotCount;
+
+            var tempCarCount = carSlots.filter(item => !unavailableSlots.includes(item)).length;
+            carSlotCount = tempCarCount == null ? carSlotCount : tempCarCount;
+            carEl = document.getElementById("carAvailSlots");
+            carEl.textContent = carSlotCount;
+        }
+
+        countAvailSlots();
+    </script>
+</body>
+
+</html>
